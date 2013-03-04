@@ -1,0 +1,91 @@
+% layout 'default.html.ep';
+% title 'Machine Learning';
+
+<% my $canv_w = 150; my $canv_h = 150; %>
+
+<h2>Character Learning</h2>
+
+<%= javascript '/js/jquery/jquery.js' %>
+
+<%= javascript '/js/jquery/jqueryplugin/jSignature.js' %>
+<%= javascript '/js/vend/others/learn.js' %>
+
+
+<style type="text/css">
+.jsignature_custom { 
+width: <%= $canv_w %>px;
+height: <%= $canv_h %>px;
+display: block;
+border-width: 1px;
+border-style: solid;
+border-color: #222222;
+background-color: #FFFFFF;
+color: #010101;
+}
+
+.jsig_clear {
+width: <%= $canv_w + 2 %>px;
+height: 25px;
+border-width: 1px;
+border-style: solid;
+border-color: #101010;
+font-size: 14px;
+background-color: #f0f0f0;
+vertical-align: top;
+padding-top: 0px;
+padding-bottom: 0px;
+margin: 0px;
+}
+
+
+table.style_regcard {
+border-width: 1px;
+border-color: #208040;
+padding: 4px;
+margin: 5px;
+}
+
+
+</style>
+
+<script>
+  $(function(){
+
+  var jsoptions = {
+  width: <%= $canv_w %>,
+  height: <%= $canv_h %>,
+  lineWidth: 1
+  };
+
+  $(".jsignature_custom").jSignature(jsoptions);
+
+  });
+
+
+</script>
+
+文字カテゴリ選択：
+<select name="category" id="category">
+<option value="1">アラビア数字</option>
+<option value="2">アルファベット</option>
+<option value="3">カタカナ</option>
+<option value="4">ひらがな</option>
+<option value="5">記号</option>
+</select>
+<br>
+<br>
+
+学習させたい文字：<input type="text" name="value" id="value" style="width:20px" maxlength="1">
+
+<br>
+<table>
+<tr>
+<td>
+<div id="jsignature_field1" class="jsignature_custom"></div>
+<button class="jsig_clear" onclick="jsig_del('jsignature_field1');">クリア</button>
+</td>
+</tr>
+</table>
+<br>
+<input type="button" value="学習させる" onClick="send_chardata('<%= $canv_w %>','<%= $canv_h %>');">
+
