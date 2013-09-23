@@ -28,7 +28,6 @@ sub file_create_append{
     my $self = shift;
     my $id = shift;
     my $data = shift;
-    $data = Encode::decode('utf8',$data);
     open my $fh, '>>', $self->datafile($id) or return;
     print $fh $data;
     return 1;

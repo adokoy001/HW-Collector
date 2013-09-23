@@ -70,7 +70,7 @@ sub character_learning{
 	$value = '';
     }
     if($value eq ''){
-	$self->render_text('no value! Please define character.');
+	$self->render(text => 'no value! Please define character.');
     }else{
 
 	### S式への変換処理
