@@ -8,7 +8,7 @@ use Encode;
 # トップページレンダリング
 sub top{
     my $self = shift;
-    $self->render();
+    $self->render(template => 'Learn/top');
 }
 
 
@@ -103,7 +103,7 @@ sub character_learning{
 	}
 
 
-	$self->render_text('learned: '.$self->param('value'));
+	$self->render(text => 'learned: '.$self->param('value'));
 
     }
     

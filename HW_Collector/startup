@@ -1,0 +1,2 @@
+#!/bin/sh
+plenv exec carton exec -- morbo script/hw_collector

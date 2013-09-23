@@ -7,7 +7,6 @@ use Encode;
 use File::Spec::Functions 'catfile';
 
 use HW_Collector::Model;
-use HW_Collector::myTimeUtil;
 
 ### attr config
 
@@ -16,9 +15,6 @@ __PACKAGE__->attr(datadir => 'data');
 
 ### $self->app->で呼び出せるように設定
 __PACKAGE__->attr(model => sub { HW_Collector::Model->new });
-__PACKAGE__->attr(tutl => sub { HW_Collector::myTimeUtil->new });
-
-
 
 
 # This method will run once at server start
